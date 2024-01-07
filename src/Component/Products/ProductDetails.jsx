@@ -15,7 +15,7 @@ const ProductDetails = () => {
   } = loadData;
 
   return (
-    <div className="card card-compact w-1/3 mx-auto bg-red-200 shadow-xl p-2 rounded-xl">
+    <div className="card card-compact lg:w-1/3 mx-3 lg:mx-auto bg-red-200 shadow-xl p-2 rounded-xl">
         <div>
           <figure className="rounded-lg">
             <img src={thumbnail} alt={`Photo of ${title} is missing`} />
