@@ -10,10 +10,10 @@ const Home = () => {
         <Link to={"/"}>
           <h1 className="text-2xl font-bold">Amazon</h1>
         </Link>
-        <div className="items-center space-x-4 text-lg">
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/products"}>Products</NavLink>
-          <NavLink to={"/dashboard"}>Dashboard</NavLink>
+        <div className="items-center space-x-1 md:space-x-4 text-lg">
+          <NavLink to={"/"} className={({ isActive }) => (isActive ? "bg-green-500 text-white px-2 py-[3px] rounded-md" : "")}>Home</NavLink>
+          <NavLink to={"/products"} className={({ isActive }) => (isActive ? "bg-green-500 text-white px-2 py-[3px] rounded-md" : "")}>Products</NavLink>
+          <NavLink to={"/dashboard"} className={({ isActive }) => (isActive ? "bg-green-500 text-white px-2 py-[3px] rounded-md" : "")}>Dashboard</NavLink>
         </div>
       </div>
       {navigationForSpinner.state === "loading" ? (
