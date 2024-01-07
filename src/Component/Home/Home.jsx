@@ -1,7 +1,9 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigation } from "react-router-dom";
 import Footer from "./Footer/Footer";
+import { ColorRing } from "react-loader-spinner";
 
 const Home = () => {
+  const navigationForSpinner = useNavigation();
   return (
     <div>
       <div className="px-10 py-6 shadow-lg flex justify-between">
@@ -14,9 +16,24 @@ const Home = () => {
           <NavLink to={"/dashboard"}>Dashboard</NavLink>
         </div>
       </div>
-      <div className="min-h-[75vh] max-w-[1330px] mx-auto">
-        <Outlet></Outlet>
-      </div>
+      {navigationForSpinner.state === "loading" ? (
+        <p className="flex justify-center my-4 min-h-[70vh]">
+          <ColorRing
+            visible={true}
+            height="110"
+            width="110"
+            ariaLabel="color-ring-loading"
+            wrapperStyle={{}}
+            wrapperClass="color-ring-wrapper"
+            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+          />
+        </p>
+      ) : (
+        <div className="min-h-[75vh] max-w-[1330px] mx-auto my-6">
+          <Outlet></Outlet>
+        </div>
+      )}
+
       <Footer></Footer>
     </div>
   );
