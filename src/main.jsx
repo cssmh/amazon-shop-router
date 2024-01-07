@@ -6,20 +6,23 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Products from './Component/Products/Products';
+import ProductDetails from './Component/Products/ProductDetails';
+import DashboardLayout from './Component/DashboardLayout/DashboardLayout';
+import Dashboard from './Component/DashboardLayout/Dashboard';
+import Profile from './Component/DashboardLayout/Profile';
+import EditProfile from './Component/DashboardLayout/EditProfile';
+import HomeLayout from './Component/HomeLayout/HomeLayout';
 import Home from './Component/Home/Home';
-import HomeLayout from './Component/Home/HomeLayout/HomeLayout';
-import Products from './Component/Home/Products/Products';
-import Dashboard from './Component/Home/Dashboard/Dashboard';
-import ProductDetails from './Component/Home/Products/ProductDetails';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <HomeLayout></HomeLayout>,
     children: [
       {
         path: "/",
-        element: <HomeLayout></HomeLayout>
+        element: <Home></Home>
       },
       {
         path: "/products",
@@ -33,7 +36,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard></Dashboard>
+        element: <DashboardLayout></DashboardLayout>,
+        children: [
+          {
+            path: "/dashboard",
+            element: <Dashboard></Dashboard>,
+          },
+          {
+            path: "/dashboard/profile",
+            element: <Profile></Profile>
+          },
+          {
+            path: "/dashboard/edit-profile",
+            element: <EditProfile></EditProfile>
+          }
+        ]
       },
     ]
   },
