@@ -19,7 +19,7 @@ const NavigateButtonHandler = () => {
         <h2 className="card-title text-2xl">{title}</h2>
         <p className="text-lg">Price: {price}</p>
         <div className="card-actions justify-end">
-          <button onClick={NavigateButtonHandler} className="btn bg-green-600 text-white">Buy Now</button>
+          <button onClick={NavigateButtonHandler} className="btn bg-green-600 text-white">Details</button>
         </div>
       </div>
     </div>
